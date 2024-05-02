@@ -1,11 +1,17 @@
-<!-- index.jsp -->
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Benvenuto</title>
+<title>E-Commerce Cart</title>
+<%@include file="/includes/head.jsp"%>
+
 </head>
 <body>
-    <h1>Benvenuto nel mio sito web!</h1>
-    <p>Questa è una pagina JSP di esempio.</p>
+	<h1>Hello world</h1>
+	<%@include file="/includes/footer.jsp"%>
 </body>
 </html>
