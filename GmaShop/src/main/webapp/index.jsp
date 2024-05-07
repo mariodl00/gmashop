@@ -1,4 +1,4 @@
-
+<%@ page import= "gmashopconnection.DBcon" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -7,11 +7,12 @@
 <html>
 <head>
 <title>E-Commerce Cart</title>
-<%@include file="/includes/head.jsp"%>
+	<%@include file="/includes/head.jsp"%>
 
 </head>
 <body>
-	<h1>Hello world</h1>
+	<% out.print(DBcon.getConnection());%>
+
 	<%@include file="/includes/footer.jsp"%>
 </body>
 </html>
