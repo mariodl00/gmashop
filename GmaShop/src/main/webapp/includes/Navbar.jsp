@@ -7,17 +7,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      
+        <a class="nav-link" href="http://localhost/GmaShop/">Home <span class="sr-only">(current)</span></a>
       </li>
       
-        <a class="nav-link" href="#">Catalogo</a>
+        <a class="nav-link" href="http://localhost/GmaShop/Catalogo.jsp">Catalogo</a>
       </li>
       
-          <a class="nav-link" href="#">Offerte</a>
+          <a class="nav-link" href="http://localhost/GmaShop/login.jsp">Login</a>
           </li>
+          
+		<a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+      </li>
       
-          <a class="nav-link" href="#">Carrello</a>
-          </li>
+		<a class="nav-link" href="http://localhost/GmaShop/carrello.jsp">Carrello</a>
+		</li>
       
           
     </ul>
