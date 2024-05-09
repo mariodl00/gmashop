@@ -27,7 +27,7 @@ public class LoginServelt extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.sendRedirect("login.jsp");	
 	}
-//CIAO
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
