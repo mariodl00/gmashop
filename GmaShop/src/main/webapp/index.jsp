@@ -4,8 +4,11 @@
 	pageEncoding="ISO-8859-1"%>
 	<%
 	UserModel auth = (UserModel) request.getSession().getAttribute("auth");
-	if(auth!=null)
+	if(auth!=null) {
 		request.setAttribute("auth", auth);
+	}
+	ProductDao pd=new ProductDao(DBcon.getConnection());
+	
 	%>
 
 <!DOCTYPE html>
