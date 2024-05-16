@@ -1,7 +1,7 @@
 <%@ page import= "gmashopmodel.Product" %>
-<%@ page import= "java.util.List" %>
+<%@ page import= "java.util.*" %>
 <%@ page import= "gmashopconnection.DBcon" %>
-<%@ page import= "gmashopmodel.UserModel" %>
+<%@ page import= "gmashopmodel.*" %>
 <%@ page import= "DAO.ProductDao" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -12,6 +12,11 @@
 	}
 	ProductDao pd=new ProductDao(DBcon.getConnection());
 	List<Product> products = pd.getAllProducts();
+	
+	ArrayList<Cart> cart_list=(ArrayList <Cart>) session.getAttribute("cart-list");
+		if(cart_list!=null) {
+			request.setAttribute("cart_list", cart_list);
+		}
 	%>
 
 <!DOCTYPE html>

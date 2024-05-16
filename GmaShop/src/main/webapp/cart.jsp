@@ -15,8 +15,11 @@
 	if(cart_list!=null) {
 		ProductDao pDao= new ProductDao(DBcon.getConnection());
 		cartProduct=pDao.getCartProducts(cart_list);
+		Double total = pDao.getTotalCartPrice(cart_list);
 		request.setAttribute("cart_list", cart_list);
+		request.setAttribute("total", total);
 	}
+	
 	%>
 
 <!DOCTYPE html>
@@ -36,7 +39,7 @@ font-size=25px;
 </head>
 <body>
 	<div class= "container"> 
-	<div class="d-flex py-3"><h3>Total Price: Euro</h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>	</div>
+	<div class="d-flex py-3"><h3>Total Price: Euro ${ (total>0)?total:0  }</h3><a class="mx-3 btn btn-primary" href="#">Check Out</a>	</div>
 	<table class="table table-loght">
 	<thead> 
 	<tr>
@@ -61,7 +64,7 @@ font-size=25px;
 			<a class="btn btn-sm btn-decre" href=""><i class="fas fa-minus-square"></i></a>
 			<input type="text" name="quantity" class="form-control" value="1" readonly>
 			
-			<a class="btn btn-sm btn-incre" href=""><i class="fas fa-plus-square"></i></a>
+			<a class="btn btn-sm btn-incre" href="/quantity-inc-dec"><i class="fas fa-plus-square"></i></a>
 			</div>
 			</form>
 			</td>

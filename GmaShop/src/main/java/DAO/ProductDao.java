@@ -41,6 +41,7 @@ public class ProductDao {
 			
 		}
 		
+		
 		public List <Cart> getCartProducts(ArrayList<Cart> cartList){
 		List<Cart> products=new ArrayList<Cart>();
 		try {
@@ -69,6 +70,31 @@ public class ProductDao {
 		}
 		return products;
 
+		}
+		
+		public double getTotalCartPrice(ArrayList<Cart> carttList) {
+			double sum=0;
+			
+			try {
+				if(carttList.size()>0) {
+					for(Cart item:carttList) {
+						query = "select price from products where id=?";
+						pst = this.con.prepareStatement(query);
+						pst.setInt(1, item.getId());
+						rs = pst.executeQuery();
+						
+						while(rs.next()) {
+							sum+=rs.getDouble("price")*item.getQuantity();
+						}
+					}
+				}
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return sum;
 		}
 }
 
