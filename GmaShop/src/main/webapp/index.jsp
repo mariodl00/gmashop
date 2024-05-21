@@ -42,7 +42,7 @@
 			    <h6 class = "category"> Categoria: <%= p.getCategory() %> </h6>
 			    <div class = "mt-3 d-flex justify-content-between">
 			    <a href="add-to-cart?id=<%= p.getId() %>" class="btn btn-primary">Carrello</a>
-			    <a href="#" class="btn btn-primary">Acquista</a></div>
+			    <a href="order-now?quantity=1&id=<%=p.getId() %>" class="btn btn-primary">Acquista</a></div>
 			  </div>
 			</div>
 				</div>
