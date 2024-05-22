@@ -42,6 +42,7 @@ public class OrderNowServlet extends HttpServlet {
                 orderModel.setDate(formatter.format(date));
 
                 OrderDao orderDao = new OrderDao(DBcon.getConnection());
+             
                 boolean result = orderDao.insertOrder(orderModel);
                 if (result) {
                     ArrayList<Cart> cart_list = (ArrayList<Cart>) request.getSession().getAttribute("cart-list");
