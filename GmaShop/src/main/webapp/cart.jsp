@@ -3,9 +3,12 @@
 <%@page import="java.util.*"%>
 <%@ page import= "gmashopconnection.DBcon" %>
 <%@ page import= "gmashopmodel.*" %>
+<%@ page import= "java.text.DecimalFormat" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%
+	DecimalFormat dcf = new DecimalFormat("#.##");
+	request.setAttribute("dcf", dcf);
 	UserModel auth = (UserModel) request.getSession().getAttribute("auth");
 	if(auth!=null)
 		request.setAttribute("auth", auth);
