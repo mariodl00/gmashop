@@ -18,7 +18,7 @@ public class Userdao {
 	public UserModel userLogin (String email, String password) {
 		UserModel user=null;
 		try {
-			query="select* from users where email=? and password=?";
+			query = "select * from users where email=? and password=?";
 			pst=this.con.prepareStatement(query);
 			pst.setString(1,email);
 			pst.setString(2, password);

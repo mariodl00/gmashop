@@ -27,7 +27,7 @@ public class OrderDao {
 	public boolean insertOrder(Order model) {
         boolean result = false;
         try {
-            query = "insert into orders (p_id, u_id, o_quantity, o_date) values(?,?,?,?)";
+        	query = "insert into orders (p_id, u_id, o_quantity, o_date) values(?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
@@ -44,7 +44,7 @@ public class OrderDao {
 public List<Order> userOrders(int id) {
     List<Order> list = new ArrayList<>();
     try {
-        query = "select * from orders where u_id=? order by orders.o_id desc";
+    	query = "select * from orders where u_id=? order by orders.o_id desc";
         pst = this.con.prepareStatement(query);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();

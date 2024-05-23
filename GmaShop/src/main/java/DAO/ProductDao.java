@@ -21,7 +21,7 @@ public class ProductDao {
 		public List <Product> getAllProducts() {
 			List <Product> products=new ArrayList<Product>();
 			try {
-				query="select * from products";
+				query = "select * from products";
 				pst=this.con.prepareStatement(query);
 				rs=pst.executeQuery();
 				while(rs.next()) {
@@ -45,7 +45,7 @@ public class ProductDao {
 			Product row = null;
 			
 			try {
-				query = "select+ from products where id=?";
+				query = "select * from products where id=?";
 				pst = this.con.prepareStatement(query);
 				pst.setInt(1, id);
 				rs = pst.executeQuery();

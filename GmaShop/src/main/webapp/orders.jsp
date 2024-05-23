@@ -48,13 +48,15 @@
 			<tbody>
 			<%
 			if(orders != null){
-			for(Order o:orders){%>
-			<tr><%= o.getDate() %> </tr>
-			<tr><%= o.getName() %> </tr>
-			<tr><%= o.getCategory() %> </tr>
-			<tr><%= o.getQuantity() %> </tr>
-			<tr><%= o.getPrice() %> </tr>
-			<tr><a class="btn btn-sm btn-danger" href="cancel-order?id=<%= o.getOrderid() %>">Cancel</a> </tr>
+			for(Order o:orders){%><tr>
+			<td><%= o.getDate() %> </td>
+			<td><%= o.getName() %> </td>
+			<td><%= o.getCategory() %> </td>
+			<td><%= o.getQuantity() %> </td>
+			<td><%=dcf.format(o.getPrice()) %></td>
+			
+			<td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderid()%>">Cancel Order</a></td>
+			</tr>
 			<%}
 			}
 			%>
