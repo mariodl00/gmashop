@@ -24,6 +24,7 @@
 <head>
 <title>E-Commerce Cart</title>
 	<%@include file="/includes/head.jsp"%>
+<link rel="stylesheet" type="text/css" href="css/Index.css">
 
 </head>
 <body>
