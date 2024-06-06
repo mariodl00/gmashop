@@ -43,7 +43,12 @@ public class LoginServelt extends HttpServlet {
 			
 		if(user!=null) {
 			request.getSession().setAttribute("auth", user);
-			response.sendRedirect("index.jsp");
+
+			if (user.getUsersType() == 1) {
+				response.sendRedirect("index.jsp");	//da modificare 
+            } else {
+                response.sendRedirect("index.jsp");
+            }
 		}
 		else {
 			out.print("user login failed");
