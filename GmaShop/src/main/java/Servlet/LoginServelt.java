@@ -45,7 +45,7 @@ public class LoginServelt extends HttpServlet {
 			request.getSession().setAttribute("auth", user);
 
 			if (user.getUsersType() == 1) {
-				response.sendRedirect("index.jsp");	//da modificare 
+				response.sendRedirect("indexAmm.jsp");	
             } else {
                 response.sendRedirect("index.jsp");
             }

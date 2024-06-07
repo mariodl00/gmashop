@@ -3,6 +3,7 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 import org.apache.catalina.valves.rewrite.InternalRewriteMap.Escape;
@@ -121,5 +122,37 @@ public class ProductDao {
 			
 			return sum;
 		}
+		 public boolean removeProduct(int id) throws SQLException {
+		        String query = "DELETE FROM products WHERE id=?";
+		        boolean rowDeleted;
+		        try (PreparedStatement statement = con.prepareStatement(query)) {
+		            statement.setInt(1, id);
+		            rowDeleted = statement.executeUpdate() > 0;
+		        }
+		        return rowDeleted;
+		    }
+		 public boolean insertProduct(Product product) throws SQLException {
+		        String query = "INSERT INTO products (name, category, price, image) VALUES (?, ?, ?, ?)";
+		        boolean rowInserted;
+		        try (PreparedStatement statement = con.prepareStatement(query)) {
+		            statement.setString(1, product.getName());
+		            statement.setString(2, product.getCategory());
+		            statement.setDouble(3, product.getPrice());
+		            statement.setString(4, product.getImage());
+		            rowInserted = statement.executeUpdate() > 0;
+		        }
+		        return rowInserted;
+		    }
+		 
+		  public void updateProduct(Product product) throws SQLException {
+		        String query = "UPDATE products SET name = ?, category = ?, price = ?, image = ? WHERE id = ?";
+		        PreparedStatement ps = con.prepareStatement(query);
+		        ps.setString(1, product.getName());
+		        ps.setString(2, product.getCategory());
+		        ps.setDouble(3, product.getPrice());
+		        ps.setString(4, product.getImage());
+		        ps.setInt(5, product.getId());
+		        ps.executeUpdate();
+		    }
 }
 
