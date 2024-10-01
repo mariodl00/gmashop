@@ -83,5 +83,27 @@ font-size=25px;
 	</table>
 	</div>
 	<%@include file="/includes/footer.jsp"%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // AJAX function example for adding product
+        $('#addProductForm').submit(function(event) {
+            event.preventDefault();  // Prevent form submission
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#responseMessage').html(response);  // Display server response
+                },
+                error: function() {
+                    alert('Error while adding product.');
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
