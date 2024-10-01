@@ -1,4 +1,3 @@
-
 package Servlet;
 
 import java.io.File;
@@ -29,10 +28,19 @@ public class InsertProductServlet extends HttpServlet {
         Part imagePart = request.getPart("image");
         String imageName = extractFileName(imagePart);
 
-        String savePath = "path/to/your/project/folder/product-images" + File.separator + imageName; // Set the correct path
-        File fileSaveDir = new File(savePath);
-        imagePart.write(savePath + File.separator);
+        // Percorso per il salvataggio dell'immagine
+        String savePath = getServletContext().getRealPath("") + File.separator + "product-images" + File.separator + imageName;
+        
+        // Creazione della directory se non esiste
+        File fileSaveDir = new File(getServletContext().getRealPath("") + File.separator + "product-images");
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdirs();
+        }
+        
+        // Salva il file
+        imagePart.write(savePath);
 
+        // Creazione del nuovo prodotto
         Product product = new Product();
         product.setName(name);
         product.setCategory(category);
@@ -45,6 +53,7 @@ public class InsertProductServlet extends HttpServlet {
             response.sendRedirect("index.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            response.sendRedirect("error.jsp");  // Reindirizza a una pagina di errore in caso di problemi
         }
     }
 
@@ -53,7 +62,8 @@ public class InsertProductServlet extends HttpServlet {
         String[] items = contentDisp.split(";");
         for (String s : items) {
             if (s.trim().startsWith("filename")) {
-                return s.substring(s.indexOf("=") + 2, s.length() - 1);
+                String filename = s.substring(s.indexOf("=") + 2, s.length() - 1);
+                return filename.replaceAll("\\s+", "_");  // Sostituisci spazi con underscore
             }
         }
         return "";
