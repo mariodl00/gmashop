@@ -21,41 +21,39 @@ import gmashopmodel.Product;
 public class InsertProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String category = request.getParameter("category");
-        double price = Double.parseDouble(request.getParameter("price"));
-        Part imagePart = request.getPart("image");
-        String imageName = extractFileName(imagePart);
+    
+    	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	    String name = request.getParameter("name");
+    	    String category = request.getParameter("category");
+    	    double price = Double.parseDouble(request.getParameter("price"));
+    	    Part imagePart = request.getPart("image");
+    	    String imageName = extractFileName(imagePart);
 
-        // Percorso per il salvataggio dell'immagine
-        String savePath = getServletContext().getRealPath("") + File.separator + "product-images" + File.separator + imageName;
-        
-        // Creazione della directory se non esiste
-        File fileSaveDir = new File(getServletContext().getRealPath("") + File.separator + "product-images");
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdirs();
-        }
-        
-        // Salva il file
-        imagePart.write(savePath);
+    	    // Percorso fisso per salvare l'immagine
+    	    String savePath = "C:\\Users\\mario\\git\\gmashop13\\GmaShop\\src\\main\\webapp\\product-images\\" + imageName;
 
-        // Creazione del nuovo prodotto
-        Product product = new Product();
-        product.setName(name);
-        product.setCategory(category);
-        product.setPrice(price);
-        product.setImage(imageName);
 
-        try {
-            ProductDao productDao = new ProductDao(DBcon.getConnection());
-            productDao.insertProduct(product);
-            response.sendRedirect("index.jsp");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");  // Reindirizza a una pagina di errore in caso di problemi
-        }
-    }
+    	    // Salva il file
+    	    imagePart.write(savePath);
+
+    	    // Creazione del nuovo prodotto
+    	    Product product = new Product();
+    	    product.setName(name);
+    	    product.setCategory(category);
+    	    product.setPrice(price);
+    	    product.setImage(imageName);
+
+    	    try {
+    	        ProductDao productDao = new ProductDao(DBcon.getConnection());
+    	        productDao.insertProduct(product);
+    	        response.sendRedirect("indexAmm.jsp");
+    	    } catch (ClassNotFoundException | SQLException e) {
+    	        e.printStackTrace();
+    	        response.sendRedirect("error.jsp");
+    	    }
+    	}
+
+
 
     private String extractFileName(Part part) {
         String contentDisp = part.getHeader("content-disposition");
