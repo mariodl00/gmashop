@@ -6,6 +6,7 @@
     <title>Inserisci Nuovo Prodotto</title>
     
     <link rel="stylesheet" type="text/css" href="css/Index.css">
+    <script src="script/validazioneforminsert.js"></script>
 </head>
 <body>
     <div class="container">
