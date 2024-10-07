@@ -14,7 +14,7 @@ import DAO.ProductDao;
 import gmashopconnection.DBcon;
 import gmashopmodel.Product;
 
-@WebServlet("/edit-product")
+@WebServlet("/update-product")
 public class EditProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
