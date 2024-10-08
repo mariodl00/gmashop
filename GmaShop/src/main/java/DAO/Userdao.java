@@ -63,6 +63,28 @@ public class Userdao {
         }
         return customers;
     }
+    public boolean registerUser(UserModel user) throws SQLException {
+        boolean isRegistered = false;
+        String query = "INSERT INTO users (name, email, password, account_type) VALUES (?, ?, ?, ?)";
+
+        try {
+            pst = this.con.prepareStatement(query);
+           
+            pst.setString(1, user.getName());
+            pst.setString(2, user.getEmail());
+            pst.setString(3, user.getPassword());
+            pst.setInt(4, user.getUsersType()); // account_type 0 per utenti normali, puoi modificare questo valore se necessario
+            
+            int rowsAffected = pst.executeUpdate();
+            if (rowsAffected > 0) {
+                isRegistered = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isRegistered;
+    }
+
 
 }
 

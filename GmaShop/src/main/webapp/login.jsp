@@ -38,6 +38,10 @@
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
+                     </div>
+        </form>
+        <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p> <!-- Link per la registrazione -->
+    </div>
                 </form>
             </div>
         </div>

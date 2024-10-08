@@ -39,7 +39,10 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="my-3">All Products</h2>
-            <a href="aggiungiProdotto.jsp" class="btn btn-success btn-insert">Inserisci Nuovo Prodotto</a>
+            <div>
+                <a href="orders.jsp" class="btn btn-primary btn-insert">Ordini</a> <!-- Pulsante per gli ordini -->
+                <a href="aggiungiProdotto.jsp" class="btn btn-success btn-insert">Inserisci Nuovo Prodotto</a>
+            </div>
         </div>
         <div class="row">
             <% 
@@ -68,4 +71,5 @@
     <%@include file="/includes/footer.jsp"%>
 </body>
 </html>
+
 
