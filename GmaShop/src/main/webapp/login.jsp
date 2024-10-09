@@ -19,30 +19,27 @@
     <title>Login</title>
     <%@include file="/includes/head.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/Login.css">
-    <script src="script/validazioneformlogin.js"></script> <!-- Assicurati che questo percorso sia corretto -->
+    <script src="script/validazionelogin.js"></script> <!-- Assicurati che questo percorso sia corretto -->
 </head>
 <body>
     <div class="container">
         <div class="card w-50 mx-auto my-5">
             <div class="card-header text-center">User Login</div>
             <div class="card-body">
-                <form action="user-login" method="post" onsubmit="return validateLoginForm();">
+                <form id="login-form" action="user-login" method="POST">
                     <div class="form-group">
                         <label>Email address</label> 
-                        <input type="email" name="login-email" class="form-control" placeholder="Enter email">
+                        <input type="text" id="login-email" name="login-email" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label>Password</label> 
-                        <input type="password" name="login-password" class="form-control" placeholder="Password">
+                        <input type="password" id="login-password" name="login-password" placeholder="Password">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
-                     </div>
-        </form>
-        <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p> <!-- Link per la registrazione -->
-    </div>
-                </form>
+                </form> <!-- Chiusura corretta del form -->
+                <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p> <!-- Link per la registrazione -->
             </div>
         </div>
     </div>

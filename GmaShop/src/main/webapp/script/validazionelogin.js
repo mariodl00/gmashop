@@ -1,12 +1,10 @@
-// Funzione per validare il form di registrazione
 function validateRegistrationForm(event) {
     // Prevenire l'invio del form fino alla validazione
     event.preventDefault();
 
     // Ottieni i valori dai campi del form
-    const name = document.getElementById("registration-name");
-    const email = document.getElementById("registration-email");
-    const password = document.getElementById("registration-password");
+    const email = document.getElementById("login-email");
+    const password = document.getElementById("login-password");
   	
 	clearErrors();
     // Variabile per controllare la validità del form
@@ -23,10 +21,6 @@ function validateRegistrationForm(event) {
         isValid = false; // Indica che ci sono errori
     }
 
-    // Validazione campo nome
-    if (!name.value.trim()) {
-        showError(name, "Il nome non deve essere vuoto.");
-    }
 
     // Validazione campo email
     if (!email.value.trim()) {
@@ -71,4 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registration-form');
     registrationForm.addEventListener('submit', validateRegistrationForm);
 });
-
+/**
+ * 
+ */

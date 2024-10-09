@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="form-container">
+     <div class="card w-50 mx-auto my-5">
         <h2>Registrati</h2>
         <form id="registration-form" action="user-register" method="POST">
             <div class="form-group">
@@ -20,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="registration-email" name="email" required>
+                <input type="text" id="registration-email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
