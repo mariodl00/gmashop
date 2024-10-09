@@ -19,30 +19,27 @@
     <title>Login</title>
     <%@include file="/includes/head.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/Login.css">
-    <script src="script/validazionelogin.js"></script> <!-- Assicurati che questo percorso sia corretto -->
+    <script src="script/validazionelogin.js"></script><
 </head>
 <body>
-    <div class="container">
-        <div class="card w-50 mx-auto my-5">
-            <div class="card-header text-center">User Login</div>
-            <div class="card-body">
-                <form id="login-form" action="user-login" method="POST">
-                    <div class="form-group">
-                        <label>Email address</label> 
-                        <input type="text" id="login-email" name="login-email" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label> 
-                        <input type="password" id="login-password" name="login-password" placeholder="Password">
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                </form> <!-- Chiusura corretta del form -->
-                <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p> <!-- Link per la registrazione -->
+    <div class="form-container">
+     <div class="card w-50 mx-auto my-5">
+        <h2>Login</h2>
+        <form id="registration-form" action="user-register" method="POST">
+           
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="login-email" name="email" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p>
     </div>
-    <%@include file="/includes/footer.jsp"%>
 </body>
 </html>

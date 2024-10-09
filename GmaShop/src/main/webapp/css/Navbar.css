@@ -1,7 +1,4 @@
-@charset "ISO-8859-1";
-/* Home.css */
-
-/* Navbar custom styles */
+/* Stili della navbar */
 .custom-navbar {
     background-color: #000000; /* Sfondo nero */
 }
@@ -16,11 +13,11 @@
 
 .custom-navbar .navbar-nav .nav-link:hover,
 .custom-navbar .navbar-nav .nav-link:focus {
-    color: #ec86d0; /* Rosa più scuro per hover/focus */
+    color: #ec86d0; /* Rosa piÃ¹ scuro per hover/focus */
 }
 
 .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 105, 180, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 105, 180, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .custom-navbar .navbar-logo {
@@ -30,10 +27,9 @@
 }
 
 .custom-navbar .logo-img {
-    height: 70px; /* Altezza del logo, modifica come necessario */
+    height: 70px; /* Altezza del logo */
 }
 
-/* Per mobile view, centrando il logo quando la navbar è collassata */
 @media (max-width: 992px) {
     .custom-navbar .navbar-logo {
         position: static;
@@ -43,4 +39,3 @@
         margin-top: 10px;
     }
 }
-
