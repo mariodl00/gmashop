@@ -1,14 +1,19 @@
 /* Stili della navbar */
 .custom-navbar {
-    background-color: #000000; /* Sfondo nero */
+    background-color: #000000;
+    padding: 1rem 0;
+    height: 100px; /* Assicurarsi che la navbar abbia un'altezza fissa */
 }
+
 
 .custom-navbar .navbar-nav .nav-link {
     color: #ec86d0; /* Rosa */
+    padding: 0.75rem 1rem; /* Aggiunto padding per le nav link */
 }
 
 .custom-navbar .navbar-brand {
     color: #ec86d0; /* Rosa */
+    padding: 0.75rem 1rem; /* Aggiunto padding per il brand */
 }
 
 .custom-navbar .navbar-nav .nav-link:hover,

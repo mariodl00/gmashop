@@ -20,7 +20,7 @@
 <html>
 <head>
     <title>Modifica Prodotto</title>
-    <%@include file="/includes/head.jsp"%>
+    <%@include file="/includes/HeadAmm.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/Index.css">
     <script src="script/validazioneformedit.js"></script> <!-- Includi il file JavaScript -->
 </head>

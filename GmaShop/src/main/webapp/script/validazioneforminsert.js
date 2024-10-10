@@ -1,5 +1,3 @@
-// validazioneformedit.js
-
 function validateForm() {
     const nameField = document.getElementById("name");
     const categoryField = document.getElementById("category");
@@ -20,6 +18,12 @@ function validateForm() {
         isValid = false; // Indica che ci sono errori
     }
 
+    // Funzione per pulire i messaggi di errore
+    function clearErrors() {
+        const errorMessages = document.querySelectorAll(".error-message");
+        errorMessages.forEach((error) => error.remove());
+    }
+
     // Controlla se i campi sono vuoti
     if (!nameField.value.trim()) {
         showError(nameField, "Il nome del prodotto non deve essere vuoto.");
@@ -37,8 +41,13 @@ function validateForm() {
     return isValid; // Ritorna true se non ci sono errori
 }
 
-// Funzione per pulire i messaggi di errore
-function clearErrors() {
-    const errorMessages = document.querySelectorAll(".error-message");
-    errorMessages.forEach((error) => error.remove());
-}
+// Aggiungere l'evento di submit al form
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function (event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Ferma l'invio del form se ci sono errori
+        }
+    });
+});

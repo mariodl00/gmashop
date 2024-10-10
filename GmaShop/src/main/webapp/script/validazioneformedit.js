@@ -19,6 +19,12 @@ function validateForm() {
         input.focus(); // Porta il cursore sul campo
         isValid = false; // Indica che ci sono errori
     }
+    
+	// Funzione per pulire i messaggi di errore
+	function clearErrors() {
+	    const errorMessages = document.querySelectorAll(".error-message");
+	    errorMessages.forEach((error) => error.remove());
+	}
 
     // Controlla se i campi sono vuoti
     if (!nameField.value.trim()) {
@@ -37,9 +43,4 @@ function validateForm() {
     return isValid; // Ritorna true se non ci sono errori
 }
 
-// Funzione per pulire i messaggi di errore
-function clearErrors() {
-    const errorMessages = document.querySelectorAll(".error-message");
-    errorMessages.forEach((error) => error.remove());
-}
 

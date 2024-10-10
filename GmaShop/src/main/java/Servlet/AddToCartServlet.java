@@ -46,7 +46,7 @@ public class AddToCartServlet extends HttpServlet {
 					for(Cart c:cartList) {
 						if(c.getId() == id) {
 						exist = true;
-						out.println("<h3 style= 'color:crimson; text-align:center'>Articolo già presente nel carrello.<a href='cart.jsp'>Vai al Carrello</a></h3>");
+						out.println("<h3 style= 'color:crimson; text-align:center'>Articolo gia presente nel carrello.<a href='cart.jsp'>Vai al Carrello</a></h3>");
 					}
 						
 					

@@ -38,7 +38,7 @@ function validateLoginForm(event) {
 
     // Se tutto è valido, invia il form
     if (isValid) {
-        document.getElementById("registration-form").submit();
+        document.getElementById("login-form").submit();
     }
 }
 

@@ -5,11 +5,14 @@
 <%@ page import= "DAO.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 	<%
+	
 	UserModel auth = (UserModel) request.getSession().getAttribute("auth");
 	if(auth!=null) {
 		request.setAttribute("auth", auth);
 	}
+	
 	ProductDao pd=new ProductDao(DBcon.getConnection());
 	List<Product> products = pd.getAllProducts();
 	

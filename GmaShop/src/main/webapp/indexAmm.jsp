@@ -23,7 +23,7 @@
 <html>
 <head>
     <title>E-Commerce Catalog</title>
-    <%@include file="/includes/head.jsp"%>			<!--Da sistemare  -->
+    <%@include file="/includes/HeadAmm.jsp"%>			
     <link rel="stylesheet" type="text/css" href="css/Index.css">
     <style>
         .btn-small {
@@ -39,10 +39,7 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
             <h2 class="my-3">All Products</h2>
-            <div>
-                <a href="orders.jsp" class="btn btn-primary btn-insert">Ordini</a> <!-- Pulsante per gli ordini -->
-                <a href="aggiungiProdotto.jsp" class="btn btn-success btn-insert">Inserisci Nuovo Prodotto</a>
-            </div>
+            
         </div>
         <div class="row">
             <% 

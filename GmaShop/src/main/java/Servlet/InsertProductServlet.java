@@ -30,7 +30,7 @@ public class InsertProductServlet extends HttpServlet {
     	    String imageName = extractFileName(imagePart);
 
     	    // Percorso fisso per salvare l'immagine
-    	    String savePath = "C:\\Users\\mario\\git\\gmashop13\\GmaShop\\src\\main\\webapp\\product-images\\" + imageName;
+    	    String savePath = "C:\\Users\\Adriano\\git\\gmashop\\GmaShop\\src\\main\\webapp\\product-images" + imageName;
 
 
     	    // Salva il file

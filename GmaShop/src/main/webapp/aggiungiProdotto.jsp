@@ -1,11 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ page import= "gmashopmodel.Product" %>
+<%@ page import= "java.util.*" %>
+<%@ page import= "gmashopconnection.DBcon" %>
+<%@ page import= "gmashopmodel.*" %>
+<%@ page import= "DAO.*" %>
+
+<%
+    UserModel auth = (UserModel) request.getSession().getAttribute("auth");
+    if (auth != null) {
+        request.setAttribute("auth", auth);
+    }
+   
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
     <title>Inserisci Nuovo Prodotto</title>
-    
-    <link rel="stylesheet" type="text/css" href="css/Index.css">
+    <%@include file="/includes/HeadAmm.jsp"%>
+    <link rel="stylesheet" type="text/css" href="css/IndexAmm.css">
     <script src="script/validazioneforminsert.js"></script>
 </head>
 <body>

@@ -4,7 +4,7 @@
 <%@ page import= "gmashopmodel.*" %>
 <%@ page import= "DAO.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);
@@ -15,7 +15,7 @@
         String startDate = request.getParameter("start_date");
         String endDate = request.getParameter("end_date");
         String selectedCustomerId = request.getParameter("customer_id");
-        
+
         OrderDao orderDao = new OrderDao(DBcon.getConnection());
 
         // Se sono presenti filtri di data o cliente
@@ -37,8 +37,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ordine</title>
-<%@include file="/includes/head.jsp"%>
+    <title>Ordine</title>
+    <!-- Collegamento al file CSS esterno -->
+    <link rel="stylesheet" type="text/css" href="css/Orders.css">
+    <%@include file="/includes/HeadAmm.jsp"%>
 </head>
 <body>
     <div class="container">
