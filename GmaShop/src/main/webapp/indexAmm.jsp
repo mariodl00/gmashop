@@ -23,7 +23,7 @@
 <html>
 <head>
     <title>E-Commerce Catalog</title>
-    <%@include file="/includes/head.jsp"%>
+    <%@include file="/includes/head.jsp"%>			<!--Da sistemare  -->
     <link rel="stylesheet" type="text/css" href="css/Index.css">
     <style>
         .btn-small {
