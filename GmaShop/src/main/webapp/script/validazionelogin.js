@@ -1,4 +1,4 @@
-function validateRegistrationForm(event) {
+function validateLoginForm(event) {
     // Prevenire l'invio del form fino alla validazione
     event.preventDefault();
 
@@ -62,8 +62,8 @@ function clearErrors() {
 
 // Aggiungi un listener per il submit del form
 document.addEventListener('DOMContentLoaded', () => {
-    const registrationForm = document.getElementById('registration-form');
-    registrationForm.addEventListener('submit', validateRegistrationForm);
+    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener('submit', validateLoginForm);
 });
 /**
  * 

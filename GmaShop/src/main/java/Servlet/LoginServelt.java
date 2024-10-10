@@ -34,8 +34,8 @@ public class LoginServelt extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		try (PrintWriter out=response.getWriter()) {
-			String email=request.getParameter("login-email");
-			String password=request.getParameter("login-password");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
 			
 			try {
 			Userdao udao=new Userdao(DBcon.getConnection());

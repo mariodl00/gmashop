@@ -19,13 +19,13 @@
     <title>Login</title>
     <%@include file="/includes/head.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/Login.css">
-    <script src="script/validazionelogin.js"></script><
+     <script src="script/validazionelogin.js"></script> <!-- Collegamento al tuo script di validazione -->
 </head>
 <body>
     <div class="form-container">
      <div class="card w-50 mx-auto my-5">
         <h2>Login</h2>
-        <form id="registration-form" action="user-register" method="POST">
+        <form id="login-form" action="user-login" method="POST">
            
             <div class="form-group">
                 <label for="email">Email:</label>
