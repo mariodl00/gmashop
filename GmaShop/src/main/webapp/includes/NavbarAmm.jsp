@@ -20,17 +20,18 @@
                 <li class="nav-item"><a class="nav-link" href="indexAmm.jsp">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="orders.jsp">Ordini</a></li>
                 <li class="nav-item"><a class="nav-link" href="aggiungiProdotto.jsp">Aggiungi Prodotto</a></li>
-                <%
-                    if (auth != null) {
-                %>
-                <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
-                <%
-                    } else {
-                %>
-                <li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
-                <%
-                    }
-                %>
+               <%
+if (session != null && session.getAttribute("auth") != null) {
+%>
+    <li class="nav-item"><a class="nav-link" href="log-out">Logout</a></li>
+<%
+} else {
+%>
+    <li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+<%
+}
+%>
+
             </ul>
         </div>
     </div>
