@@ -13,47 +13,45 @@ import javax.servlet.http.HttpSession;
 
 import gmashopmodel.Cart;
 
-/**
- * Servlet implementation class AddToCartServlet
- */
 @WebServlet("/add-to-cart")
 public class AddToCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		
-		try(PrintWriter out = response.getWriter()){
-				ArrayList<Cart> cartList = new ArrayList<>();
-				
-				int id = Integer.parseInt(request.getParameter("id"));
-				Cart cm = new Cart();
-				cm.setId(id);
-				cm.setQuantity(1);
-				
-				HttpSession session = request.getSession();
-				ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-				
-				if(cart_list == null) {
-					cartList.add(cm);
-					session.setAttribute("cart-list", cartList);
-					response.sendRedirect("index.jsp");
-				}else {
-					cartList = cart_list;
-					boolean exist = false;
-					
-					for(Cart c:cartList) {
-						if(c.getId() == id) {
+
+		try (PrintWriter out = response.getWriter()) {
+			ArrayList<Cart> cartList = new ArrayList<>();
+
+			int id = Integer.parseInt(request.getParameter("id"));
+			Cart cm = new Cart();
+			cm.setId(id);
+			cm.setQuantity(1);
+
+			HttpSession session = request.getSession();
+			ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+
+			if (cart_list == null) {
+				cartList.add(cm);
+				session.setAttribute("cart-list", cartList);
+				response.sendRedirect("index.jsp");
+			} else {
+				cartList = cart_list;
+				boolean exist = false;
+
+				for (Cart c : cartList) {
+					if (c.getId() == id) {
 						exist = true;
-						out.println("<h3 style= 'color:crimson; text-align:center'>Articolo gia presente nel carrello.<a href='cart.jsp'>Vai al Carrello</a></h3>");
+						out.println("<script type='text/javascript'>");
+						out.println("alert('Articolo già presente nel carrello.');");
+						out.println("window.location.href = 'cart.jsp';");
+						out.println("</script>");
 					}
-						
-					
-					}if(!exist) {
-						cartList.add(cm);
-						response.sendRedirect("index.jsp");
-						
+				}
+
+				if (!exist) {
+					cartList.add(cm);
+					response.sendRedirect("index.jsp");
 				}
 			}
 		}

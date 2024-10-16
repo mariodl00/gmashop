@@ -53,9 +53,9 @@
                                     <h6 class="price">Prezzo: Euro <%= p.getPrice() %> </h6>
                                     <h6 class="category"> Categoria: <%= p.getCategory() %> </h6>
                                     <div class="mt-3 d-flex justify-content-between">
-                                       <a href="edit-product.jsp?id=<%= p.getId() %>" class="btn btn-warning btn-small">Modifica</a>
+                                       <a href="edit-product.jsp?id=<%= p.getId() %>" class="btn btn-primary">Modifica</a>
                                        
-                                        <a href="remove-product?id=<%= p.getId() %>" class="btn btn-danger btn-small">Rimuovi</a>
+                                        <a href="remove-product?id=<%= p.getId() %>" class="btn btn-primary">Rimuovi</a>
                                     </div>
                                 </div>
                             </div>

@@ -16,21 +16,25 @@ import DAO.*;
 
 @WebServlet("/cancel-order")
 public class CancelOrderServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try(PrintWriter out = response.getWriter()) {
-			String id = request.getParameter("id");
-			if(id != null) {
-				OrderDao orderDao = new OrderDao(DBcon.getConnection());
-				orderDao.cancelOrder(Integer.parseInt(id));
-			}
-			response.sendRedirect("orders.jsp");
-		} catch (ClassNotFoundException|SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-	}
+    private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try(PrintWriter out = response.getWriter()) {
+            String id = request.getParameter("id");
+            String startDate = request.getParameter("start_date");
+            String endDate = request.getParameter("end_date");
+            String customerId = request.getParameter("customer_id");
+
+            if(id != null) {
+                OrderDao orderDao = new OrderDao(DBcon.getConnection());
+                orderDao.cancelOrder(Integer.parseInt(id));
+             // Reindirizzare a orders.jsp con i parametri del form
+                response.sendRedirect("orders.jsp?start_date=" + startDate + "&end_date=" + endDate + "&customer_id=" + customerId);
+            }
+
+            
+        } catch (ClassNotFoundException|SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
