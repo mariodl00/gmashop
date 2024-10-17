@@ -20,16 +20,17 @@ public class OrderDao {
         this.con = con;
     }
 
-    // Inserimento di un ordine nel database
+    // Inserimento di un ordine nel database con il campo group_id
     public boolean insertOrder(Order model) {
         boolean result = false;
         try {
-            query = "insert into orders (p_id, u_id, o_quantity, o_date) values(?,?,?,?)";
+            query = "insert into orders (p_id, u_id, o_quantity, o_date, group_id) values(?,?,?,?,?)";
             pst = this.con.prepareStatement(query);
             pst.setInt(1, model.getId());
             pst.setInt(2, model.getUid());
             pst.setInt(3, model.getQuantity());
             pst.setString(4, model.getDate());
+            pst.setString(5, model.getGroupId()); // Imposta il campo group_id
             pst.executeUpdate();
             result = true;
         } catch (SQLException e) {
@@ -58,6 +59,7 @@ public class OrderDao {
                 order.setPrice(product.getPrice() * rs.getInt("o_quantity"));
                 order.setQuantity(rs.getInt("o_quantity"));
                 order.setDate(rs.getString("o_date"));
+                order.setGroupId(rs.getString("group_id")); // Recupera il campo group_id
                 list.add(order);
             }
         } catch (Exception e) {
@@ -89,6 +91,7 @@ public class OrderDao {
                 order.setPrice(product.getPrice() * rs.getInt("o_quantity"));
                 order.setQuantity(rs.getInt("o_quantity"));
                 order.setDate(rs.getString("o_date"));
+                order.setGroupId(rs.getString("group_id")); // Recupera il campo group_id
                 orders.add(order);
             }
         } catch (SQLException e) {
@@ -96,6 +99,35 @@ public class OrderDao {
         }
         return orders;
     }
+    
+    public List<Order> getOrdersByGroupId(String groupId) {
+        List<Order> orders = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM orders WHERE group_id = ?";
+            PreparedStatement pst = this.con.prepareStatement(query);
+            pst.setString(1, groupId);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Order order = new Order();
+                ProductDao productDao = new ProductDao(this.con);
+                int pId = rs.getInt("p_id");
+                Product product = productDao.getSingleProduct(pId);
+                order.setOrderid(rs.getInt("o_id"));
+                order.setId(pId);
+                order.setName(product.getName());
+                order.setCategory(product.getCategory());
+                order.setPrice(product.getPrice() * rs.getInt("o_quantity"));
+                order.setQuantity(rs.getInt("o_quantity"));
+                order.setDate(rs.getString("o_date"));
+                order.setGroupId(rs.getString("group_id"));
+                orders.add(order);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
 
     // Cancella un ordine
     public void cancelOrder(int id) {
