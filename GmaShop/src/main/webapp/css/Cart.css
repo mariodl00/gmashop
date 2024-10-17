@@ -1,0 +1,110 @@
+@charset "ISO-8859-1";
+/* Stile generale per il corpo della pagina */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #eeeeee;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenitore principale */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Stile per le tabelle */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table thead th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Stile per i pulsanti */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Cambio colore al passaggio del mouse */
+button[type="submit"]:hover {
+    background-color: #343a40;
+}
+
+.btn-primary {
+    background-color: #343a40;
+    border: none;
+    
+}
+
+.btn-primary:hover {
+    background-color: #343a40;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Pulsanti per aumentare e diminuire la quantità */
+.btn-incre, .btn-decre {
+    color: #343a40;
+    font-size: 20px;
+    border: none;
+    background: none;
+}
+
+.btn-incre:hover, .btn-decre:hover {
+    color: #0056b3;
+}
+
+/* Stile per il form di quantità */
+.form-control {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* Sezione responsiva */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .form-control {
+        width: 40px;
+        font-size: 14px;
+    }
+}

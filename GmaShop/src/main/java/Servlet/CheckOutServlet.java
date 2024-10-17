@@ -44,7 +44,7 @@ public class CheckOutServlet extends HttpServlet {
 	            		//calling the insert method
 	            		boolean result=oDao.insertOrder(order);
 	            		if(!result) {
-	            			break;
+	            			System.out.println("Ordine non inserito");;
 	            		}
 	            		
 	            		cart_list.clear();
