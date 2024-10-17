@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="gmashopmodel.Order" %>
 <%@ page import="DAO.OrderDao" %>
@@ -10,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conferma Ordine - GMAShop</title>
-    <link rel="stylesheet" type="text/css" href="css/CheckOut.css">
     <%@include file="/includes/head.jsp"%>
+    <link rel="stylesheet" type="text/css" href="css/CheckOut.css">
 </head>
 <body>
 
