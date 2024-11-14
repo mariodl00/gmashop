@@ -70,7 +70,7 @@
             <button type="submit" class="btn btn-primary">Salva Modifiche</button>
         </form>
     </div>
-
+	<div style="height: 100px;"></div>
     <%@include file="/includes/footer.jsp"%> <!-- Inclusione del footer -->
 </body>
 </html>

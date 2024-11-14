@@ -121,6 +121,7 @@ if(cart_list != null) {
             </tbody>
         </table>
     </div>
+    <div style="height: 200px;"></div>
     <%@include file="/includes/footer.jsp"%>
 </body>
 </html>

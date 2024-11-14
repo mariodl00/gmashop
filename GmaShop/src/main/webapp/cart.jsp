@@ -84,12 +84,13 @@
             <%   }
                } else { %>
                 <tr>
-                    <td colspan="5" class="text-center">Il carrello è vuoto.</td>
+                    <td colspan="5" class="text-center">Il carrello Ã¨ vuoto.</td>
                 </tr>
             <% } %>
             </tbody>
         </table>
     </div>
+    <div style="height: 300px;"></div>
 
     <%@include file="/includes/footer.jsp"%>
 </body>

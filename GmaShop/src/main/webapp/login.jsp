@@ -7,7 +7,7 @@
     if(auth != null) {
         response.sendRedirect("index.jsp");
     }
-    
+
     ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
     if(cart_list != null) {
         request.setAttribute("cart_list", cart_list);
@@ -17,29 +17,33 @@
 <html>
 <head>
     <title>Login</title>
-    <%@include file="/includes/head.jsp"%>
+    <%@ include file="/includes/head.jsp" %>
     <link rel="stylesheet" type="text/css" href="css/Login.css">
-     <script src="script/validazionelogin.js"></script> <!-- Collegamento al tuo script di validazione -->
+    <script src="script/validazionelogin.js"></script> <!-- Collegamento al tuo script di validazione -->
 </head>
 <body>
-    <div class="form-container">
-     <div class="card w-50 mx-auto my-5">
-        <h2>Login</h2>
-        <form id="login-form" action="user-login" method="POST">
-           
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" id="login-email" name="email" required>
+    <div class="main-content">
+        <div class="form-container">
+            <div class="card w-50 mx-auto my-5">
+                <h2>Login</h2>
+                <form id="login-form" action="user-login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="login-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="login-password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
-        <p>Non hai un account? <a href="Registrazione.jsp">Registrati</a></p>
+        </div>
     </div>
+
+    <%@ include file="/includes/footer.jsp" %>
 </body>
 </html>

@@ -19,9 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserisci Nuovo Prodotto</title>
     <%@include file="/includes/HeadAmm.jsp"%>
-    <!-- Includi il CSS esterno -->
+    
     <link rel="stylesheet" type="text/css" href="css/Add-product.css">
-    <!-- JavaScript per la validazione -->
+    
     <script src="script/validazioneforminsert.js"></script>
 </head>
 <body>
@@ -29,36 +29,69 @@
         <div class="card">
             <h2>Inserisci Nuovo Prodotto</h2>
             <form action="insert-product" method="post" enctype="multipart/form-data">
-                <!-- Nome del Prodotto -->
+               
                 <div class="form-group">
                     <label for="name">Nome del Prodotto</label>
                     <input type="text" id="name" name="name" class="form-control" required>
                 </div>
 
-                <!-- Categoria del Prodotto -->
                 <div class="form-group">
                     <label for="category">Categoria</label>
-                    <input type="text" id="category" name="category" class="form-control" required>
+                    <input type="text" id="category" name="category" class="form-control" onkeyup="getSuggestions(this.value)" required>
+                    <div id="suggestions" class="suggestions-box"></div> <!-- Div per mostrare i suggerimenti -->
                 </div>
 
-                <!-- Prezzo del Prodotto -->
                 <div class="form-group">
                     <label for="price">Prezzo</label>
                     <input type="number" id="price" name="price" class="form-control" step="0.01" required>
                 </div>
 
-                <!-- Immagine del Prodotto -->
                 <div class="form-group">
                     <label for="image">Immagine del Prodotto</label>
                     <input type="file" id="image" name="image" class="form-control-file" required>
                 </div>
 
-                <!-- Pulsante di invio -->
                 <button type="submit" class="btn btn-primary">Aggiungi Prodotto</button>
             </form>
         </div>
     </div>
     
-    <%@include file="/includes/footer.jsp" %> <!-- Inclusione del footer -->
+    <%@include file="/includes/footer.jsp" %>
+
+    <script>
+        function getSuggestions(query) {
+            if (query.length === 0) {
+                document.getElementById("suggestions").innerHTML = "";
+                return;
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("suggestions").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "Category-suggestions.jsp?query=" + encodeURIComponent(query), true);
+            xhr.send();
+        }
+    </script>
+
+    <style>
+        .suggestions-box {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            z-index: 1000;
+            width: calc(100% - 20px);
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </body>
 </html>

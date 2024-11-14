@@ -56,7 +56,7 @@
 	
 	</div>
 	</div>
-
+	<div style="height: 100px;"></div>
 	<%@include file="/includes/footer.jsp"%>
 </body>
 </html>
